@@ -1,0 +1,246 @@
+
+@{
+    Layout = "~/Views/Shared/_LayoutAuth.cshtml";
+}
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modelbody">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="gobackhome">Home</button>
+        <button type="button" class="btn btn-primary" id="gotosignin">Sign in</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <section class="login d-flex text-center bg-primary common-img-bg">
+        <!-- Container-fluid starts -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Authentication card start -->
+                    <div class="signup-card card-block auth-body mr-auto ml-auto">
+                        <form  class="md-float-material">
+                            <div class="text-center">
+                                <img src="/images/auth/logo-dark.png" alt="logo.png">
+                            </div>
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class="text-center txt-primary"> @ViewBag.response</h3>
+                                    </div>
+                                </div>
+                                <hr/>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="ap_name" id="name" value="h" required placeholder="Full Name">
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="ap_cnic" id="cnic" value="12" required placeholder="C.N.I.C">
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="phone1" name="ap_phone1" value="121" required placeholder="Phone Number">
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="phone2" value="12" name="ap_phone2" placeholder="Landline Number">
+                                    <span class="md-line"></span>
+                                </div>
+                                 <div class="input-group">
+                                    <input type="email" class="form-control" required id="email" value="as@com" name="ap_email" placeholder="Email">
+                                    <span class="md-line"></span>
+                            </div>
+                          @*  <div class="input-group">
+                                <input type="file" class="form-control" id="image" accept="image/*" placeholder="Profile Image">
+                                <span class="md-line"></span>
+                            </div>*@
+                            <div class="row ">
+                                <div class="col-md-4">
+                                    <div class="form-check text-dark">
+                                        <input class="form-check-input"  type="radio"  name="ap_gender" value="0" checked>
+                                        <label class="form-check-label" for="exampleRadios1">
+                                            Male
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check text-dark">
+                                        <input class="form-check-input" type="radio"  name="ap_gender" id="exampleRadios2" value="1">
+                                        <label class="form-check-label" for="exampleRadios2">
+                                            Female
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check text-dark">
+                                        <input class="form-check-input" type="radio"  name="ap_gender" id="exampleRadios3" value="2">
+                                        <label class="form-check-label " for="exampleRadios3 ">
+                                            Other
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                             <div class="input-group">
+                                    <input type="date" class="form-control" id="dob"  name="ap_dob" value="12-12-2002" placeholder="D.O.B">
+                                    <span class="md-line"></span>
+                            </div>
+                             <div class="input-group">
+                                    <input type="password" class="form-control" id="password"  name="ap_password" value="as" required placeholder="Password">
+                                    <span class="md-line"></span>
+                            </div>
+ 
+
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <input type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20 " value="Sign Up"/>
+                                    </div>
+                               
+                                </div>
+                                <hr/>
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <p class="text-inverse text-left m-b-0">Thank you and enjoy our Platform.</p>
+                                        <p class="text-inverse text-left"><b>TurboAppServices</b></p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <img src="/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- end of form -->
+                    </div>
+                    <!-- Authentication card end -->
+                </div>
+                <!-- end of col-sm-12 -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container-fluid -->
+    </section>
+  
+       <script type="text/javascript" src="~/js/jquery/jquery.min.js"></script>
+
+   <script>
+       
+
+    //    function    signup(){
+  
+        
+       $("form").submit(function(e){
+        e.preventDefault(); 
+           
+           var name= $("#name").val();
+     var cnic=  $("#cnic").val();
+      var phone1= $("#phone1").val();
+      var phone2= $("#phone2").val();
+      var email= $("#email").val();
+     // var image= $("#image").val();
+    
+      var gender = $("input[type='radio']:checked",).val();
+      var dob= $("#dob").val();
+      var password= $("#password").val();
+
+      alert("as");
+       //var fd = new FormData();
+        //var files = $('#image')[0].files;
+        //fd.append('file',files[0]);
+
+
+
+
+
+
+
+
+     // var formData = new FormData();
+       // formData.append("MyUploader", image[0]);
+      var obj={
+    ap_name  : name,
+    ap_cnic   :cnic,
+    ap_phone1 :phone1,
+    ap_phone2 :phone2,
+    ap_email  :email,
+  //  ap_image :fd,
+    ap_gender:gender,
+    ap_dob:dob,
+    ap_password:password
+
+
+          };
+
+        
+
+
+     $.ajax({
+          url: "/Applicant/ApplicantSignUp",
+          type: "post",
+           dataType: 'JSON',
+                     contentType: "application/x-www-form-urlencoded;charset=utf-8",
+
+           cache: false,
+
+          data: obj ,
+          success: function (response) {
+               alert(response);
+              if(response!=null){
+                  if(response.messageType==true){
+
+                  $("#exampleModal").modal("toggle");
+                  
+                   $("#modelbody").html("Your account is created. Do you want to sign in?");
+                  $("#gotosignin").click(function(){
+                      window.location.href = "Signin";
+                  });
+                  $("#gobackhome").click(function(){
+                      window.location.href = "../Home/index";
+                  });
+                   
+
+                   var res=response.result;
+
+                }else{
+                   
+                      $("#exampleModal").modal("toggle");
+                      $("#modelbody").html("You already Have Account?");
+                      $("#gobackhome").html("Try Again");
+
+                  $("#gotosignin").click(function(){
+                      window.location.href = "Signin";
+                  });
+                  $("#gobackhome").click(function(){
+                      location.reload();
+                  });
+                }
+            }
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+                        alert(textStatus+"Err");
+
+        }
+    });
+    //}
+     });
+    
+       
+       </script>
