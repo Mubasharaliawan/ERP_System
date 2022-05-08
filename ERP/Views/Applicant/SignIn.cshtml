@@ -1,7 +1,6 @@
-
 @{
     Layout = "~/Views/Shared/_LayoutAuth.cshtml";
-    @ViewData["Title"];
+    
 }
 
 
@@ -12,7 +11,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     <div class="login-card card-block auth-body mr-auto ml-auto">
-                        <form class="md-float-material">
+                        <form asp-action="Login" method="post" class="md-float-material">
                             <div class="text-center">
                                 <img src="/images/auth/logo-dark.png" alt="logo.png">
                             </div>
@@ -21,14 +20,17 @@
                                     <div class="col-md-12">
                                         <h3 class="text-left txt-primary">Sign In</h3>
                                     </div>
+                                     <div class="col-md-12">
+                                        <h6 class="text-left text-c-orenge txt-primary">@ViewBag.message</h6>
+                                    </div>
                                 </div>
                                 <hr/>
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Your Email Address">
+                                    <input type="email" class="form-control" name="ap_email" id="email" placeholder="Your Email Address">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" name="ap_password" id="password" placeholder="Password">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="row m-t-25 text-left">
@@ -47,7 +49,7 @@
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign in</button>
+                                        <input type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign in</input>
                                     </div>
                                 </div>
                                 <hr/>
@@ -77,7 +79,5 @@
 
    <script>
        
-       $("p").click(function(){
-           alert("helo");
-       })
+
        </script>

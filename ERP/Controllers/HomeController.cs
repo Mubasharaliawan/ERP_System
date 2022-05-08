@@ -1,9 +1,11 @@
 ﻿using ERP.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace ERP.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,6 +17,7 @@ namespace ERP.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.message = TempData["name"];
             return View();
         }
 
